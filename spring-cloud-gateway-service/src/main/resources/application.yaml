@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: currency-exchange-service
+          uri: http://localhost:8100/
+          predicates:
+            - Path=/currency-convertor-feign/**
+        - id: currency-exchange-service
+          uri: http://localhost:8000/
+          predicates:
+            - Path=/currency-exchange/**
